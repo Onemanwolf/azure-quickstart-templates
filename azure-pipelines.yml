@@ -13,7 +13,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'master'
+    SourceFolder: 'quickstarts'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
