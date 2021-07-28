@@ -10,11 +10,7 @@ pool:
 
 steps:
 
-- task: ArchiveFiles@2
-  displayName: 'Archive sources'
-  inputs:
-      rootFolderOrFile: $(Build.SourcesDirectory)
-      includeRootFolder: false
+
 - task: CopyFiles@2
   inputs:
     
