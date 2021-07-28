@@ -12,8 +12,9 @@ steps:
 - task: CopyFiles@2
   inputs:
     
-    SourceFolder: 'microsoft.web'
-    Contents: '**'
+    SourceFolder: 'webapp-linux-managed-mysql'
+
+    Contents: '**\bin\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
    
 - task: AzureResourceManagerTemplateDeployment@3
