@@ -13,7 +13,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'quickstarts/microsoft.web'
+    SourceFolder: 'quickstarts/microsoft.web/webapp-linux-managed-mysql'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
