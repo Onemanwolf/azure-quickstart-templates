@@ -15,6 +15,7 @@ steps:
     SourceFolder: 'webapp-linux-managed-mysql'
 
     Contents: '**\bin\**'
+    OverWrite: true
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
    
 - task: AzureResourceManagerTemplateDeployment@3
