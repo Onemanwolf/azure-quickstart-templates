@@ -11,7 +11,7 @@ pool:
 steps:
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'webapp-linux-managed-mysql'
+    SourceFolder: 'azure-quickstart-templates/quickstarts/microsoft.web/webapp-linux-managed-mysql'
 
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
