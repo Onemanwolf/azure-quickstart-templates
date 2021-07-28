@@ -11,6 +11,11 @@ pool:
 steps:
 
 
+- task: CopyFiles@2
+  inputs:
+   ## SourceFolder: 'webapp-linux-managed-mysql'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
    
 - task: AzureResourceManagerTemplateDeployment@3
@@ -22,9 +27,8 @@ steps:
     resourceGroupName: 'ARMPipelinesLAMP-rg'
     location: 'eastus'
     templateLocation: 'Linked artifact'
-    
-    csmFileLink: 'https://github.com/Onemanwolf/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/webapp-linux-managed-mysql/azuredeploy.json'
-    csmParametersFileLink: 'https://github.com/Onemanwolf/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/webapp-linux-managed-mysql/azuredeploy.parameters.json'
+    csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
+    csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
     overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(ARM_PASS)'
     deploymentMode: 'Incremental'
 
