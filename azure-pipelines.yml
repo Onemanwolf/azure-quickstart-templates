@@ -13,7 +13,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'Microsoft.Web'
+    SourceFolder: '$(Agent.BuildDirectory)'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
