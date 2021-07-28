@@ -9,12 +9,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- task: ArchiveFiles@2
+  displayName: 'Archive sources'
+  inputs:
+      rootFolderOrFile: $(Build.SourcesDirectory)
+      includeRootFolder: false
 - task: CopyFiles@2
   inputs:
     
     SourceFolder: 'webapp-linux-managed-mysql'
 
-    Contents: '**\bin\**'
+    Contents: '*.json'
     OverWrite: true
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
    
