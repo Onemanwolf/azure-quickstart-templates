@@ -17,7 +17,7 @@ steps:
   - task: CopyFiles@2
     inputs:
       SourceFolder: 'quickstarts/microsoft.web/web-app-sql-database'
-      Contents: '\*\*'
+      Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - task: AzureResourceManagerTemplateDeployment@3
