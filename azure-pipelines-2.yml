@@ -16,20 +16,20 @@ pool:
 steps:
   - task: CopyFiles@2
     inputs:
-    SourceFolder: 'quickstarts/microsoft.web/web-app-sql-database/'
-    Contents: '\*\*'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      SourceFolder: 'quickstarts/microsoft.web/web-app-sql-database/'
+      Contents: '\*\*'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'arm-deployment-service-connection'
-    subscriptionId: '6738d774-0014-4ded-842b-327158c8b568'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'ARMPipelinesLAMP-rg'
-    location: 'eastus'
-    templateLocation: 'Linked artifact'
-    csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
-    csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-skuName $(skuName) -skuCapacity $(skuCapacity) -administratorLogin $(administratorLogin) -administratorLoginPassword $(ARM_PASS)'
-    deploymentMode: 'Incremental'
+  - task: AzureResourceManagerTemplateDeployment@3
+    inputs:
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: 'arm-deployment-service-connection'
+      subscriptionId: '6738d774-0014-4ded-842b-327158c8b568'
+      action: 'Create Or Update Resource Group'
+      resourceGroupName: 'ARMPipelinesLAMP-rg'
+      location: 'eastus'
+      templateLocation: 'Linked artifact'
+      csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
+      csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
+      overrideParameters: '-skuName $(skuName) -skuCapacity $(skuCapacity) -administratorLogin $(administratorLogin) -administratorLoginPassword $(ARM_PASS)'
+      deploymentMode: 'Incremental'
